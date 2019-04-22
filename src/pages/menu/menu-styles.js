@@ -42,9 +42,10 @@ export const DishTitle = styled.div`
   border: 1px solid ${mainBlue};
   padding: 0 1rem;
  h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         font-weight: lighter;
         color: #dde9e6;
+        letter-spacing: 4.8px;
         margin-bottom: 2rem;
         text-align: center;
         text-transform: uppercase;

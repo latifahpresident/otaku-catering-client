@@ -42,6 +42,25 @@ class AddNewDish extends Component {
         }
     }
 
+    // createDishHandler = (event) => {
+    //     event.preventDefault()
+    //     const fd = new FormData();
+    //     fd.append('name', this.state.name)
+    //     fd.append('imageUrl', this.state.imageUrl, this.state.imageUrl.name)
+    //     fd.append('description', this.state.description)
+    //     axios.post('http://localhost:8080/add-new-dish', fd,)
+    //         .then(res => {
+    //              console.log(res, 'res data')
+    //             this.setState({
+    //                 imageUrl: res.data.imageUrl
+    //             })
+    //             console.log('Success Message: ' + res.data.msg + ' - Image File Name: ' + res.data.imageUrl)
+    //         })          
+    //         .catch(err => {
+    //             console.log(err, 'error from frontend')
+    //         })
+    // }
+
     createDishHandler = (event) => {
         event.preventDefault()
         const fd = new FormData();
@@ -51,14 +70,20 @@ class AddNewDish extends Component {
         axios.post('http://localhost:8080/add-new-dish', fd,)
             .then(res => {
                  console.log(res, 'res data')
-                this.setState({
-                    imageUrl: res.data.imageUrl
-                })
-                console.log('Success Message: ' + res.data.msg + ' - Image File Name: ' + res.data.imageUrl)
-            })          
+                 if(res.status === 201 || 200) {
+                    axios.get('http://localhost:8080/')
+                    .then(res => {this.setState({
+                        imageUrl: res.data.imageUrl
+                      })
+                      console.log('Success Message: ' + res.data.msg + ' - Image File Name: ' + res.data.imageUrl)
+                       }) 
+                 }         
+            })                   
             .catch(err => {
                 console.log(err, 'error from frontend')
             })
+
+            this.props.history.push('/menu')
     }
    
     render () {
