@@ -1,0 +1,36 @@
+import React from 'react';
+import { DishWrapper, DishContent, Dish, DishTitle, MenuWrapper } from './menu-styles';
+import '../../App';
+
+const Menu = (props) => {
+    return (
+        <MenuWrapper>
+            <h1>Catering Menu</h1>
+            <DishWrapper>
+                
+                <DishContent>
+            {props.dishes.map(dish => {
+                console.log(dish, 'in dish')
+                return (
+                    
+                    <Dish key={dish.id}>
+                            
+                            <div className='dish-image'>
+                                <img src={ `http://localhost:8080/${dish.imageUrl} `}  className='dish-url' alt={dish.name}/>
+                                
+                            </div>
+                            <DishTitle>
+                                <h3>{dish.name}</h3>
+                                </DishTitle>
+                            {/* <h5>{dish.description}</h5> */}
+                    </Dish>
+                    
+                )
+            })}
+                </DishContent>
+            </DishWrapper>
+        </MenuWrapper>
+    )
+};
+
+export default Menu
