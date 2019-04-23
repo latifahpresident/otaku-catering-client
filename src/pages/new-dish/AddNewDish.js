@@ -71,7 +71,7 @@ class AddNewDish extends Component {
             .then(res => {
                  console.log(res, 'res data')
                  if(res.status === 201 || 200) {
-                    axios.get('http://localhost:8080/')
+                    axios.get('https://otaku-catering-backend.herokuapp.com/')
                     .then(res => {this.setState({
                         imageUrl: res.data.imageUrl
                       })

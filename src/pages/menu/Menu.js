@@ -16,7 +16,7 @@ class Menu extends Component {
 
     componentDidMount()  {
         axios
-          .get(`http://localhost:8080/`)
+          .get(`https://otaku-catering-backend.herokuapp.com/`)
           .then(res => {
             console.log(res, 'response')
             this.setState({
@@ -41,7 +41,7 @@ class Menu extends Component {
                     <Dish key={dish.id}>
                             
                             <div className='dish-image'>
-                                <img src={ `http://localhost:8080/${dish.imageUrl} `}  className='dish-url' alt={dish.name}/>
+                                <img src={ `https://otaku-catering-backend.herokuapp.com/${dish.imageUrl} `}  className='dish-url' alt={dish.name}/>
                                 
                             </div>
                             <DishTitle>
