@@ -67,7 +67,7 @@ class AddNewDish extends Component {
         fd.append('name', this.state.name)
         fd.append('imageUrl', this.state.imageUrl, this.state.imageUrl.name)
         fd.append('description', this.state.description)
-        axios.post('http://localhost:8080/add-new-dish', fd,)
+        axios.post('https://otaku-catering-backend.herokuapp.com/add-new-dish', fd,)
             .then(res => {
                  console.log(res, 'res data')
                  if(res.status === 201 || 200) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
-import Nav from './components/Nav/Nav';
+import Nav from './components/Nav/desktop-nav/Nav';
 import Menu from './pages/menu/Menu';
 
 import './App.css';

@@ -8,7 +8,7 @@ const lightColor = '#98999C';
 
 export const MenuWrapper = styled.div`
     background-color: #edf3f0;
-    height: 100vh;
+    min-height: 100vh;
     border: 1px solid green;
     padding: 0 1rem;
 
@@ -29,6 +29,14 @@ export const DishContent = styled.div`
     margin: 0 auto;
     width: 80%;
     /* border: 1px solid orange; */
+
+    @media only screen and (max-width: 700px) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid red;
+    }
 `;
 
 

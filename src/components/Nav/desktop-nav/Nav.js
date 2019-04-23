@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Dropdown from './Dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, famobilealt, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import { NavLinksWrapper, CateringDropdownWrapper,  } from './nav-styles';
-import '../../App.css';
+import { faChevronDown, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { NavLinksWrapper, CateringDropdownWrapper,  } from '../desktop-nav/nav-styles';
+import '../../../App.css';
 
 class Nav extends Component {
     constructor(props) {
