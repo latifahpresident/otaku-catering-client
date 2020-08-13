@@ -5,7 +5,7 @@ const fontColor= '#009B72'
 const accentColor = '#F26430';
 
 export const NavLinksWrapper = styled.nav`
-    background-color: ${fontColor};
+    background-color: #2a0061;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,7 +18,8 @@ export const NavLinksWrapper = styled.nav`
         border-bottom: 2px solid ${accentColor};
     }
     .nav-link {
-        color: ${mainBlue};
+        color: ${fontColor};
+        /* color: ${mainBlue}; */
         font-size: 1.14rem;
         letter-spacing: 5px;
         text-decoration: none;
@@ -32,7 +33,7 @@ export const NavLinksWrapper = styled.nav`
     }
 
     .phone-icon {
-        color: ${mainBlue};
+        color: ${fontColor};
         margin-right: .5rem;
     }
 `;

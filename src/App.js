@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Nav from './components/Nav/desktop-nav/Nav';
 import Menu from './pages/menu/Menu';
-
+import Home from "./pages/Home/Home";
 import './App.css';
 import AddNewDish from './pages/new-dish/AddNewDish';
 
@@ -52,11 +52,9 @@ class App extends Component {
    console.log(this.state.data, 'looking for state')
     return (
       <div className="App">
-        <Nav
-         
-        />
-        {/* <Dropdown
-        /> */}
+        <Nav/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
          <Route
             exact path ='/menu'
             render={props =>
@@ -78,6 +76,7 @@ class App extends Component {
               />
             }
           />
+          </Switch>
       </div>
     )
   }

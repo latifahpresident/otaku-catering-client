@@ -1,107 +1,147 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Dropdown from './Dropdown';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import { NavLinksWrapper, CateringDropdownWrapper,  } from '../desktop-nav/nav-styles';
-import '../../../App.css';
+import React, {useState} from "react";
+import {Link, withRouter} from "react-router-dom";
+import MenuDrawer from "./Menu";
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import {Menu, Phone, Facebook, Instagram} from '@material-ui/icons';
+import { Grid } from "@material-ui/core";
+import {darkPurple, white, greenColor} from "./../../../GlobalStyles/styles"
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+        display: "none",
+       },
+  },
+  title: {
+    flexGrow: 1,
+  },
+  toolbar: {
+      backgroundColor: `${darkPurple}`,
+      display: "flex",
+      justifyContent: "space-between",
+    //   border: "1px solid white"
+  },
+  menu: {
+    //   border: "1px solid white",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      width: "20%",
+      [theme.breakpoints.down('sm')]: {
+        display: "none",
+       },
+  },
+  linkContainer: {
+    //   border: "1px solid orange",
+      display: "flex",
+      justifyContent: "space-between",
+      width: "50%",
+      [theme.breakpoints.down('sm')]: {
+        justifyContent: "center",
+       },
+  },
+  link: {
+      "&:hover": {
+          color: `${greenColor}`,
+      },
+    [theme.breakpoints.down('sm')]: {
+       display: "none",
+      },
+  },
+  home: {
+      border: `1px solid ${white}`,
+      height: 50,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      padding: ".5rem",
+     
+  },
+  order: {
+      border: `1.2px solid ${white}`,
+      width: "10%",
+      display: "flex",
+      justifyContent: "center",
+      [theme.breakpoints.down('xs')]: {
+        display: "none",
+       },
+  },
+  orderBtn: {
+    color: `${white}`,
+    textAlign: "center",
+   
+  },
+  a: {
+      textDecoration: "none",
+      color:`${white}`,
+  },
+  mobileIcons: {
+    //   border: "1px solid white",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      width: "20%",
+      [theme.breakpoints.up('sm')]: {
+        display: "none",
+       },
+  },
+}));
 
-class Nav extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            dropDownOpen: false
-        }
+const Nav = (props) => {
+  const classes = useStyles();
+const [open, setOpen] = useState(false);
+
+const toggleMenu = () => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
     }
 
-
-    toggleDropdown = () => {
-        this.setState({
-            dropDownOpen: !this.state.dropDownOpen
-        })
-    }
-
-    openDropdown = () => {
-        this.setState({
-          dropDownOpen: true
-        });
-        console.log('toggling')
-    };
-
-    closeDropdown = () => {
-        this.setState({
-            dropDownOpen: false
-          });
-    }
-
-    render () {
-        console.log(this.state)
-    return (
-
-        <div>
-        <NavLinksWrapper>
-            {/* <LinksWrapper> */}
-            
-            <NavLink
-                to='/home'
-                activeClassName='active'
-                className='nav-link'
-            >
-                Home
-            </NavLink>
-            <NavLink
-                to='/menu'
-                activeClassName='active'
-                className='nav-link'
-            >
-                Menu
-            </NavLink>
-
-            
-            <NavLink
-                to='/catering-services'
-                activeClassName='active'
-                className='nav-link'
-            >
-                Catering Services
-                <FontAwesomeIcon onClick={this.toggleDropdown}  className= 'font-icon' icon={faChevronDown} /> 
-            </NavLink>
-            <div className={this.state.dropDownOpen ? 'open' : 'close'}>
-                <Dropdown />
-            </div>
-            
-           
-            <NavLink
-                to='/about'
-                activeClassName='active'
-                className='nav-link'
-            >
-                About
-            </NavLink>
-
-            <NavLink
-                to='/contact'
-                activeClassName='active'
-                className='nav-link'
-            >
-                Contact
-            </NavLink>
-            <div>
-            <FontAwesomeIcon onClick={this.openDropdown} className='phone-icon' icon={faMobileAlt} /> 
-            <a href="tel:1-707-590-5355" className='nav-link '>707-590-5355</a>
-            </div>
-            <NavLink
-                to='/add-new-dish'
-                activeClassName='active'
-                className='nav-link'
-            >
-                Add New Dish
-            </NavLink>
-           {/* </LinksWrapper> */}
-        </NavLinksWrapper>
-        
-        </div>
-    )}
-};
-
-export default Nav
+    setOpen(!open);
+  };
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar className={classes.toolbar}>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleMenu(true)}>
+            <Menu />
+        </IconButton>
+        <Grid className={classes.menu}>
+       
+        <Phone/>
+            <a className={classes.a} href="tel:1-707-590-5355">707 590 5355</a>
+        <Facebook/>
+        <Instagram/>
+        </Grid >
+         <Grid className={classes.linkContainer}>
+          <Button className={classes.link} component={Link} color="inherit">Services</Button>
+          <Button className={classes.link} component={Link} color="inherit">About</Button>
+          <Grid className={classes.home} onClick={() => props.history.push("/")}>ZnChef <br/> Catering</Grid>
+          <Button className={classes.link} component={Link} color="inherit">Gallery</Button>
+          <Button className={classes.link} component={Link} color="inherit">Contact</Button>
+          </Grid>
+          <Grid className={classes.order}>
+              <Button className={classes.orderBtn}>
+                  Order
+              </Button>
+          </Grid>
+          <Grid className={classes.mobileIcons}>
+          <Facebook/>
+          {/* <a className={classes.a} href="tel:1-707-590-5355"><Phone/></a> */}
+       <Instagram/>
+       </Grid >
+        </Toolbar>
+      </AppBar>
+      <MenuDrawer toggleMenu={toggleMenu} open={open}/>
+    </div>
+  );
+}
+ export default withRouter(Nav);
