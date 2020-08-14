@@ -1,6 +1,8 @@
 .App {
   /* text-align: center; */
   font-family: 'Quicksand', sans-serif;
+  border: 2px solid brown;
+  width: 100%;
 }
 
 p {

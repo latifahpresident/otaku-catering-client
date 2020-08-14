@@ -8,7 +8,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import {Menu, Phone, Facebook, Instagram} from '@material-ui/icons';
 import { Grid } from "@material-ui/core";
-import {darkPurple, white, greenColor} from "./../../../GlobalStyles/styles"
+import {darkPurple, white, greenColor} from "./../../../GlobalStyles/styles";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -122,11 +123,11 @@ const toggleMenu = () => (event) => {
         <Instagram/>
         </Grid >
          <Grid className={classes.linkContainer}>
-          <Button className={classes.link} component={Link} color="inherit">Services</Button>
-          <Button className={classes.link} component={Link} color="inherit">About</Button>
+          <Button className={classes.link} component={Link} to="/services" color="inherit">Services</Button>
+          <Button className={classes.link} component={Link} to="/about" color="inherit">About</Button>
           <Grid className={classes.home} onClick={() => props.history.push("/")}>ZnChef <br/> Catering</Grid>
-          <Button className={classes.link} component={Link} color="inherit">Gallery</Button>
-          <Button className={classes.link} component={Link} color="inherit">Contact</Button>
+          <Button className={classes.link} component={Link} to="/gallery" color="inherit">Gallery</Button>
+          <Button className={classes.link} component={Link} to="/contact" color="inherit">Contact</Button>
           </Grid>
           <Grid className={classes.order}>
               <Button className={classes.orderBtn}>

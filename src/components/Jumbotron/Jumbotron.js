@@ -4,7 +4,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import HomeImage from "./../../assests/images/dylan-nolte--D09rH5sTw4-unsplash.jpg";
-import {darkPurple, white, greenColor} from "./../../GlobalStyles/styles";
+import {white, greenColor} from "./../../GlobalStyles/styles";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       position: "relative",
-      zIndex: 1
+      zIndex: 1,
+      width: "100%",
     },
     home: {
         border: `3px solid ${greenColor}`,
