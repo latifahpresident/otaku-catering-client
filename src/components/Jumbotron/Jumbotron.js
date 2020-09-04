@@ -18,8 +18,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       position: "relative",
-      zIndex: 1,
+    //   zIndex: 1,
       width: "100%",
+    },
+    wrapper: {
+        position: "absolute",
+        background: "rgb(50 19 60 / 60%)",
+        zIndex: 2,
+        // border: "5px solid red",
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
     home: {
         border: `3px solid ${greenColor}`,
@@ -33,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         color: `${white}`,
         fontSize: "3rem",
-       
+       zIndex: 4,
     },
   }));
 const Jumbotron = (props) => {
@@ -41,9 +52,11 @@ const Jumbotron = (props) => {
 
     return (
         <Grid className={classes.root}>
+        <Grid className={classes.wrapper}>
             <ScrollAnimation animateIn="slideInUp" >
             <Grid className={classes.home} onClick={() => props.history.push("/")}>ZnChef <br/> Catering</Grid>
             </ScrollAnimation>
+        </Grid>
         </Grid>
     )
 };

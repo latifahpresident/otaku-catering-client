@@ -2,6 +2,8 @@ import React from "react";
 import Jumbotron from "./../../components/Jumbotron/Jumbotron";
 import { makeStyles } from '@material-ui/core/styles';
 import About from "./About";
+import MultiItemCarousel from "./../../components/Carousel/MultiItemCarousel";
+import Services from "./Services";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -10,13 +12,15 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignItems: "center",
      flexDirection: "column",
-     width: "95%",
+     width: "100%",
      border: "1px solid orange",
-     margin: "2rem auto 0 auto",
+     margin: "0 auto",
      height: "auto",
     //  padding: "0 2.5rem",
+     overflow: "hidden",
     },
   }));
+
 const Home = () => {
     const classes = useStyles();
 
@@ -25,7 +29,8 @@ const Home = () => {
             <Jumbotron/>
             <div className={classes.root}>
                 <About/>
-                <div>next section</div>
+                {/* <MultiItemCarousel/> */}
+                <Services/>
             </div>
         </div>
     )
