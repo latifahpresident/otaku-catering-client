@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     //   alignItems: "center",
     //  flexDirection: "column",
      width: "100%",
-     border: "1px solid orange",
-     marginTop: "4rem",
+    //  border: "1px solid orange",
+    //  marginTop: "4rem",
      boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
     //  height: "auto",
     //  padding: "0 2.5rem",
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
-        border: "1px solid red",
+        // border: "1px solid red",
         alignSelf: "flex-start",
         padding: "0 1.5rem",
         alignSelf: "flex-start"
@@ -68,19 +68,19 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         alignItems: "center",
     //    flexDirection: "column",
-       border: "2px solid red",
+    //    border: "2px solid red",
        width: "45%",
-       margin: "0 auto 2rem auto",
+       margin: "0 auto",
        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
        position: "relative",
        [theme.breakpoints.down('xs')]: {
-       width: "100%",
+       width: "20%",
     },
     },
     title: {
         position: "absolute",
         backgroundColor: `${transparentPurple}`,
-        border: "1px solid black",
+        // border: "1px solid black",
         bottom: 69,
         width: 625,
         height: 67,
@@ -91,7 +91,9 @@ const useStyles = makeStyles((theme) => ({
     },
     h1: {
         color: `${white}`,
-        border: "1px solid green",
+        // border: "1px solid green",
+        fontSize: 18,
+        fontWeight: 800,
     },
     img: {
         width: 629,
@@ -131,16 +133,16 @@ const Services = () => {
 
     return (
         <Grid className={classes.root}>
-             <Grid className={classes.heading}>
+             {/* <Grid className={classes.heading}>
                 <Grid className={classes.tagline}>
                     <div className={classes.line}></div>
                     <Typography component="h4" className={classes.h4}>Quick tagline for services section</Typography>
                 </Grid>
                 <Typography component="h1" className={classes.heading1}>Checkout out our services</Typography>
-            </Grid>
+            </Grid> */}
                     <Grid className={classes.wrapper}>
             {data.map((item) => (
-                <ScrollAnimation style={{border: "1.5px solid pink", margin: "2rem"}} animateIn="fadeIn" duration="2">
+                <ScrollAnimation style={{ margin: "1rem"}} animateIn="fadeIn" duration="2">
                 <Grid className={classes.container}>
                     <img className={classes.img} src={`${item.image}`} alt={item.title}/>
                     <Grid className={classes.title}>

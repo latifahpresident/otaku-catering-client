@@ -19,16 +19,16 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
      marginTop: "4rem",
      width: "100%",
-     border: "1px solid orange",
-     [theme.breakpoints.down('lg')]: {
-        border: "1px solid hotpink",
-       },
-      [theme.breakpoints.down('md')]: {
-        border: "1.5px solid limegreen",
-       },
+    //  border: "1px solid orange",
+    //  [theme.breakpoints.down('lg')]: {
+    //     border: "1px solid hotpink",
+    //    },
+    //   [theme.breakpoints.down('md')]: {
+    //     border: "1.5px solid limegreen",
+    //    },
       [theme.breakpoints.down('sm')]: {
-        border: "2px solid teal",
-       
+        // border: "2px solid teal",
+       marginBottom: "4rem",
        },
     },
     title: {
@@ -101,20 +101,39 @@ const useStyles = makeStyles((theme) => ({
         // display: "flex",
         // justifyContent: "center",
         [theme.breakpoints.down('sm')]: {
-            paddingLeft: 0
+            paddingLeft: 0,
+            // width: "87%",
         },
     },
     container: {
-        // maxWidth: 400,
-       width: 800,
+        maxWidth: 450,
+       width: 400,
        marginRight: "4rem",
        position: "relative",
        [theme.breakpoints.down('sm')]: {
-        marginRight: 0
+        // marginRight: "1rem",
+        // width: 200,
+      width: 450
+        // border: "3px solid green",
+        
     },
       },
       media: {
         height: 465,
+        [theme.breakpoints.down('sm')]: {
+            marginRight: "1rem",
+            width: "90%",
+          
+            // border: "3px solid blue",
+            
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginRight: "1rem",
+            width: "100%",
+          
+            // border: "3px solid blue",
+            
+        },
       },
       overlay: {
         position: "absolute",
@@ -199,16 +218,16 @@ const MultiItemCarousel = (props) => {
         //   return 5;
         // }
     
-        // if (isWidthUp("lg", props.width)) {
-        //   return 4;
-        // }
+        if (isWidthUp("lg", props.width)) {
+          return 4;
+        }
     
         if (isWidthUp("md", props.width)) {
             console.log("props.width", props.width)
           return 3;
         }
         if (isWidthUp("sm", props.width)) {
-          return 1;
+          return 2;
         }
         return 1;
       };
@@ -242,14 +261,14 @@ const MultiItemCarousel = (props) => {
         <Slider {...settings} >
             {data.map((item) => (
                  <Card className={classes.container}>
-                 <CardActionArea>
+                 {/* <CardActionArea> */}
                    <CardMedia
                      className={classes.media}
                      image={item.image}
                      title={item.title}
                    />
                  
-                 </CardActionArea>
+                 {/* </CardActionArea> */}
                <div className={classes.overlay}></div>
                </Card>
             ))}

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
      flexDirection: "column",
      width: "100%",
-     border: "1px solid orange",
+    //  border: "1px solid orange",
      margin: "0 auto",
      height: "auto",
     //  padding: "0 2.5rem",
