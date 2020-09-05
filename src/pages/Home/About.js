@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "42px 0 36px 0",
       width: "100%",
       position: "relative",
+    //   marginBottom: "2rem",
       [theme.breakpoints.down('lg')]: {
         // border: "1px solid hotpink",
        },

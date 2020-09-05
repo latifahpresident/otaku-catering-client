@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      width: "20%",
+      width: "15%",
       [theme.breakpoints.up('sm')]: {
         display: "none",
        },
@@ -110,7 +110,7 @@ const toggleMenu = () => (event) => {
   };
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleMenu(true)}>
             <Menu />
@@ -136,8 +136,8 @@ const toggleMenu = () => (event) => {
           </Grid>
           <Grid className={classes.mobileIcons}>
           <Facebook/>
-          {/* <a className={classes.a} href="tel:1-707-590-5355"><Phone/></a> */}
-       <Instagram/>
+          <a className={classes.a} href="tel:1-707-590-5355"><Phone/></a>
+       {/* <Instagram/> */}
        </Grid >
         </Toolbar>
       </AppBar>

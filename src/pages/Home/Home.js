@@ -29,7 +29,7 @@ const Home = () => {
             <Jumbotron/>
             <div className={classes.root}>
                 <About/>
-                {/* <MultiItemCarousel/> */}
+                <MultiItemCarousel/>
                 <Services/>
             </div>
         </div>

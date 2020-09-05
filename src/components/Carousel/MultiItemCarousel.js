@@ -1,48 +1,265 @@
-import React from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
+import {withRouter} from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from "@material-ui/core";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
+import { Grid, Typography, } from "@material-ui/core";
+import {greenColor, darkPurple, transparentLightPurple} from "./../../GlobalStyles/styles";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import "./../../App.css";
+import charcuterieboard from "./../../assests/images/charcuterieboard.jpg";
+import pasta from "./../../assests/images/fresh_pasta.jpg";
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-     flexDirection: "column",
+     marginTop: "4rem",
      width: "100%",
      border: "1px solid orange",
-     margin: "0 auto",
-     height: "auto",
-    //  padding: "0 2.5rem",
-     overflow: "hidden",
+     [theme.breakpoints.down('lg')]: {
+        border: "1px solid hotpink",
+       },
+      [theme.breakpoints.down('md')]: {
+        border: "1.5px solid limegreen",
+       },
+      [theme.breakpoints.down('sm')]: {
+        border: "2px solid teal",
+       
+       },
+    },
+    title: {
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        // border: "1px solid red",
+        alignSelf: "flex-start",
+        padding: "0 1.5rem",
+    },
+    tagline: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // border: "1px solid teal",
+        [theme.breakpoints.down('xs')]: {
+            width: 350,
+            justifyContent: "flex-start",
+        },
+    },
+    line: {
+        width: 30,
+        border: `.2px solid ${greenColor}`,
+        backgroundColor: `${greenColor}`,
+        marginRight: ".5rem"
+    },
+    h4: {
+        color: `${greenColor}`,
+        lineHeight: 1.5,
+        fontWeight: 500,
+        fontSize: 20,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 17
+        },
+        
+      
+    },
+    h1: {
+        fontSize: "2.75rem",
+        lineHeight: 1.4,
+        fontWeight: "bold",
+        maxWidth: 520,
+        marginBottom: "2.25rem",
+        color: `${darkPurple}`,
+        [theme.breakpoints.down('sm')]: {
+            fontSize: 35
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: 28,
+            alignSelf: "flex-start"
+        },
     },
     column: {
         height: 75,
-        width: 75,
-    }
+        width: 25,
+        border: "1px solid black"
+    },
+    arrow: {
+        color: `${greenColor}`,
+        display: "block",
+        border: "1px solid green"
+    },
+    carousel: {
+        // border: "1px solid limegreen",
+        width: "100%",
+        margin: "0 auto",
+        marginTop: "1.5rem",
+        paddingLeft: "5rem",
+        // display: "flex",
+        // justifyContent: "center",
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: 0
+        },
+    },
+    container: {
+        // maxWidth: 400,
+       width: 800,
+       marginRight: "4rem",
+       position: "relative",
+       [theme.breakpoints.down('sm')]: {
+        marginRight: 0
+    },
+      },
+      media: {
+        height: 465,
+      },
+      overlay: {
+        position: "absolute",
+        bottom: 0,
+        background: "rgb(0, 0, 0)",
+        // background: "rgba(0, 0, 0, 0.5)", /* Black see-through */
+        background: `${transparentLightPurple}`,
+        color: "#f1f1f1", 
+        width: "100%",
+        transition: ".5s ease",
+        opacity: 1,
+        color: "white",
+        fontSize: "20px",
+        padding: "20px",
+        textAlign: "center",
+        height: 465,
+        ":hover": {
+            opacity: 1,
+        }
+      }
   }));
 
-const MultiItemCarousel = () => {
+  const data = [
+      {
+          image: `${charcuterieboard}`,
+          title: "charcuterieboard",
+      },
+      {
+        image: `${pasta}`,
+        title: "charcuterieboard",
+    },
+    {
+        image:`${charcuterieboard}`,
+        title: "charcuterieboard",
+    },
+    {
+        image: `${pasta}`,
+        title: "charcuterieboard",
+    },
+    {
+        image: `${charcuterieboard}`,
+        title: "charcuterieboard",
+    },
+    {
+        image: `${pasta}`,
+        title: "charcuterieboard",
+    },
+    {
+        image: `${charcuterieboard}`,
+        title: "charcuterieboard",
+    },
+  ]
+
+const MultiItemCarousel = (props) => {
     const classes = useStyles();
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3
+  
+
+    function SamplePrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+          <div
+            className="slick-arrow slick-prev"
+            // style={{ ...style, display: "block", background: "green" }}
+            onClick={onClick}
+          />
+        );
       };
+
+      function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+          <div
+            className="slick-arrow slick-next"
+            // style={{ ...style, display: "block", background: "green" }}
+            onClick={onClick}
+          />
+        );
+      };
+
+      const getSlideNumber = () => {
+        // if (isWidthUp("xl", props.width)) {
+        //   return 5;
+        // }
+    
+        // if (isWidthUp("lg", props.width)) {
+        //   return 4;
+        // }
+    
+        if (isWidthUp("md", props.width)) {
+            console.log("props.width", props.width)
+          return 3;
+        }
+        if (isWidthUp("sm", props.width)) {
+          return 1;
+        }
+        return 1;
+      };
+
+     
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: getSlideNumber(),
+    slidesToScroll: getSlideNumber(),
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
+
+  };
+  console.log("settings slides to show", settings.slidesToShow)
+  console.log("settings speed", settings.speed)
+  console.log("width", props.width)
+
     return (
-        <Grid>
-             <h2> Multiple items </h2>
-        <Slider {...settings}>
-          <div className={classes.column}>
-            <h3>1</h3>
+ 
+        <div className={classes.root}>
+              <Grid className={classes.title}>
+                            <Grid className={classes.tagline}>
+                                <div className={classes.line}></div>
+                                <Typography component="h4" className={classes.h4}>Event gallery</Typography>
+                            </Grid>
+                            <Typography component="h1" className={classes.h1}>Visualize the experience</Typography>
+                </Grid>
+                <Grid className={classes.carousel}>
+        <Slider {...settings} >
+            {data.map((item) => (
+                 <Card className={classes.container}>
+                 <CardActionArea>
+                   <CardMedia
+                     className={classes.media}
+                     image={item.image}
+                     title={item.title}
+                   />
+                 
+                 </CardActionArea>
+               <div className={classes.overlay}></div>
+               </Card>
+            ))}
+          {/* <div >
+            <h3>item 1</h3>
           </div>
-          <div>
-            <h3>2</h3>
+          <div >
+            <h3>item 2</h3>
           </div>
-          <div>
+          <div >
             <h3>3</h3>
           </div>
           <div>
@@ -62,10 +279,11 @@ const MultiItemCarousel = () => {
           </div>
           <div>
             <h3>9</h3>
-          </div>
+          </div> */}
         </Slider>
         </Grid>
+        </div>
     )
 };
 
-export default MultiItemCarousel;
+export default withRouter(withWidth()(MultiItemCarousel));

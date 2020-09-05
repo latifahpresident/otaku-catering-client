@@ -61,5 +61,62 @@ p {
   color: #dde9e6;
   color: #edf3f0;
   color: #2a0061;
+  background: rgba(0, 0, 0, 0.349);
 }
 
+.slider-arrow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 3px solid turquoise;
+}
+
+.slick-prev {
+  color: #9CC99B;
+  background-color: transparent;
+  height: 30px;
+  /* border: 3px solid black; */
+  position: absolute;
+  top: -20px;
+  left: 1400px;
+  width: 70px;
+}
+.slick-next {
+  color: #9CC99B;
+  background-color: transparent;
+  height: 30px;
+  /* border: 3px solid blue; */
+  position: absolute;
+  top: -20px;
+  left: 1500px;
+  width: 70px;
+}
+.slick-prev:hover {
+  color: teal;
+  /* background-color: cornflowerblue; */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #9CC99B;
+  font-size: 2rem;
+}
+.slick-prev:after,
+.slick-next:after {
+  color: #9CC99B;
+  font-size: 2rem;
+}
+.arrow-btn {
+  top: 45%;
+  z-index: 1;
+  border: 3px solid black;
+
+}
+.next {
+  float: right;
+  border: 3px solid black;
+
+}
+/* .slick-slide .slick-active {
+  width: 440px
+} */
