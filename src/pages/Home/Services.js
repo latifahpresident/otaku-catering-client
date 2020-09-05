@@ -23,11 +23,19 @@ const useStyles = makeStyles((theme) => ({
      boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
     //  height: "auto",
     //  padding: "0 2.5rem",
+    marginTop: "5rem",
+    [theme.breakpoints.down('sm')]: {
+        padding: "0 4rem",
+    },
     },
     wrapper: {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
+        // border: "1px solid orange",
+        [theme.breakpoints.down('sm')]: {
+            padding: "0 4rem",
+        },
     },
     heading: {
         display: "flex",
@@ -74,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
        position: "relative",
        [theme.breakpoints.down('xs')]: {
-       width: "20%",
+            padding: "0 2rem",
     },
     },
     title: {
@@ -88,6 +96,10 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         alignItems: "center",
         bottom: 0,
+        [theme.breakpoints.down('xs')]: {
+            width: 425,
+           
+    },
     },
     h1: {
         color: `${white}`,
@@ -98,7 +110,10 @@ const useStyles = makeStyles((theme) => ({
     img: {
         width: 629,
         height: 403,
-
+        [theme.breakpoints.down('xs')]: {
+            width: 425,
+           
+    },
     }
   }));
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import {withRouter} from "react-router-dom";
 import "slick-carousel/slick/slick.css";
@@ -8,11 +8,15 @@ import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import { Grid, Typography, } from "@material-ui/core";
 import {greenColor, darkPurple, transparentLightPurple} from "./../../GlobalStyles/styles";
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import "./../../App.css";
 import charcuterieboard from "./../../assests/images/charcuterieboard.jpg";
 import pasta from "./../../assests/images/fresh_pasta.jpg";
+import searedsalmon from "./../../assests/images/searedkingtrumpetandpeas.jpg";
+import AjoBlanco from "./../../assests/images/ajoblanco.jpeg"; 
+import BuffuloColiflowerPoboy from "./../../assests/images/buffulocoliflowerpoboy.jpeg"; 
+import CoconutDalMakhani from "./../../assests/images/coconutdalmakhani.jpeg"; 
+import SkunaBaySalmon from "./../../assests/images/skunabaysalmon.jpeg"; 
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
      marginTop: "4rem",
      width: "100%",
     //  border: "1px solid orange",
-    //  [theme.breakpoints.down('lg')]: {
-    //     border: "1px solid hotpink",
-    //    },
-    //   [theme.breakpoints.down('md')]: {
-    //     border: "1.5px solid limegreen",
-    //    },
+     [theme.breakpoints.down('lg')]: {
+        // border: "1px solid hotpink",
+       },
+      [theme.breakpoints.down('md')]: {
+        // border: "1.5px solid limegreen",
+       },
       [theme.breakpoints.down('sm')]: {
         // border: "2px solid teal",
        marginBottom: "4rem",
@@ -101,19 +105,27 @@ const useStyles = makeStyles((theme) => ({
         // display: "flex",
         // justifyContent: "center",
         [theme.breakpoints.down('sm')]: {
-            paddingLeft: 0,
+            paddingLeft: "2rem",
             // width: "87%",
         },
     },
     container: {
-        maxWidth: 450,
-       width: 400,
-       marginRight: "4rem",
+        maxWidth: 370,
+       width: 370,
+       
+    //    marginRight: "4rem",
        position: "relative",
-       [theme.breakpoints.down('sm')]: {
+       [theme.breakpoints.down('md')]: {
         // marginRight: "1rem",
         // width: 200,
-      width: 450
+        maxWidth: 330,
+      width: 330
+        // border: "3px solid green",
+        
+    },
+       [theme.breakpoints.down('sm')]: {
+        maxWidth: 340,
+        width: 340
         // border: "3px solid green",
         
     },
@@ -122,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
         height: 465,
         [theme.breakpoints.down('sm')]: {
             marginRight: "1rem",
-            width: "90%",
+            width: "100%",
           
             // border: "3px solid blue",
             
@@ -158,16 +170,24 @@ const useStyles = makeStyles((theme) => ({
 
   const data = [
       {
-          image: `${charcuterieboard}`,
-          title: "charcuterieboard",
+          image: `${CoconutDalMakhani}`,
+          title: "Coconut Dal Makhani",
       },
       {
-        image: `${pasta}`,
-        title: "charcuterieboard",
+        image: `${SkunaBaySalmon}`,
+        title: "Skuna Bay Salmon",
     },
     {
-        image:`${charcuterieboard}`,
-        title: "charcuterieboard",
+        image:`${searedsalmon}`,
+        title: "seared salmon",
+    },
+    {
+        image: `${AjoBlanco}`,
+        title: "Ajo Blanco",
+    },
+    {
+        image: `${BuffuloColiflowerPoboy}`,
+        title: "Buffulo Colliflower Po'boy",
     },
     {
         image: `${pasta}`,
@@ -175,15 +195,7 @@ const useStyles = makeStyles((theme) => ({
     },
     {
         image: `${charcuterieboard}`,
-        title: "charcuterieboard",
-    },
-    {
-        image: `${pasta}`,
-        title: "charcuterieboard",
-    },
-    {
-        image: `${charcuterieboard}`,
-        title: "charcuterieboard",
+        title: "Charcuterie Board",
     },
   ]
 
@@ -219,7 +231,7 @@ const MultiItemCarousel = (props) => {
         // }
     
         if (isWidthUp("lg", props.width)) {
-          return 4;
+          return 3;
         }
     
         if (isWidthUp("md", props.width)) {
@@ -227,7 +239,7 @@ const MultiItemCarousel = (props) => {
           return 3;
         }
         if (isWidthUp("sm", props.width)) {
-          return 2;
+          return 1;
         }
         return 1;
       };
@@ -260,7 +272,7 @@ const MultiItemCarousel = (props) => {
                 <Grid className={classes.carousel}>
         <Slider {...settings} >
             {data.map((item) => (
-                 <Card className={classes.container}>
+                 <Card key={item.title} className={classes.container} style={{ marginRight: "2rem"}}>
                  {/* <CardActionArea> */}
                    <CardMedia
                      className={classes.media}
@@ -269,7 +281,7 @@ const MultiItemCarousel = (props) => {
                    />
                  
                  {/* </CardActionArea> */}
-               <div className={classes.overlay}></div>
+               {/* <div className={classes.overlay}></div> */}
                </Card>
             ))}
           {/* <div >

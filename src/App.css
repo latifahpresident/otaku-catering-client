@@ -1,7 +1,7 @@
 .App {
   /* text-align: center; */
   font-family: 'Quicksand', sans-serif;
-  border: 1px solid brown;
+  /* border: 1px solid brown; */
 }
 
 p {
@@ -77,9 +77,19 @@ p {
   height: 30px;
   /* border: 3px solid black; */
   position: absolute;
-  top: -20px;
-  left: 1400px;
+  /* top: -20px;
+  left: 1400px; */
   width: 70px;
+}
+
+@media only screen and (min-width: 400px) {
+  .slick-prev{
+    margin-right: 2rem;
+      /* border: 3px solid black; */
+      width: auto;
+      z-index: 2;
+    /* min-height: 50vh;  */
+  }
 }
 .slick-next {
   color: #9CC99B;
@@ -87,9 +97,19 @@ p {
   height: 30px;
   /* border: 3px solid blue; */
   position: absolute;
-  top: -20px;
-  left: 1500px;
+  /* top: -20px; */
+  /* left: -1300px; */
   width: 70px;
+}
+@media only screen and (min-width: 400px) {
+  .slick-next{
+    margin-left: 2rem;
+      /* border: 3px solid orange; */
+      right: 10px;
+      z-index: 2;
+
+    /* min-height: 50vh;  */
+  }
 }
 .slick-prev:hover {
   color: teal;

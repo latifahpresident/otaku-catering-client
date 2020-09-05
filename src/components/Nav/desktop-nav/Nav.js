@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      width: "15%",
+      width: "20%",
       [theme.breakpoints.up('sm')]: {
         display: "none",
        },
