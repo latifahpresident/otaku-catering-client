@@ -24,17 +24,17 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
      marginTop: "4rem",
      width: "100%",
-     border: "1px solid orange",
-     [theme.breakpoints.down('lg')]: {
-        border: "1px solid hotpink",
-       },
-      [theme.breakpoints.down('md')]: { //ipad pro
-        border: "1.5px solid limegreen",
-       },
-      [theme.breakpoints.down('sm')]: {
-        border: "2px solid teal", // ipad
-       marginBottom: "1rem",
-       },
+    //  border: "1px solid orange",
+    //  [theme.breakpoints.down('lg')]: {
+    //     border: "1px solid hotpink",
+    //    },
+    //   [theme.breakpoints.down('md')]: { //ipad pro
+    //     border: "1.5px solid limegreen",
+    //    },
+    //   [theme.breakpoints.down('sm')]: {
+    //     border: "2px solid teal", // ipad
+    //    marginBottom: "1rem",
+    //    },
     },
     title: {
         display: "flex",
@@ -93,19 +93,11 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto",
         marginTop: "1.5rem",
         paddingLeft: "1.5rem",
-        // display: "flex",
-        // justifyContent: "center",
         [theme.breakpoints.down('md')]: {
             paddingLeft: 0,
-            // width: "87%",
-        },
-        [theme.breakpoints.down('sm')]: {
-            paddingLeft: 0,
-            // width: "87%",
         },
         [theme.breakpoints.down('xs')]: {
             paddingLeft: "1rem",
-            // width: "87%",
         },
     },
     container: {
@@ -113,6 +105,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "100%",
     //    border: "2px solid orange",
        position: "relative",
+       borderRadius: 0,
        [theme.breakpoints.down('md')]: {
            width: "90%",
            maxWidth: "90%",
@@ -131,10 +124,6 @@ const useStyles = makeStyles((theme) => ({
             width: "100%",
             marginRight: "1rem",
         },
-        // [theme.breakpoints.down('sm')]: {
-        //     width: "91.5%",
-        //     // border: "3px solid blue",
-        // },
         [theme.breakpoints.down('xs')]: {
             width: "91.5%",
             // border: "3px solid blue",
@@ -144,7 +133,6 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         bottom: 0,
         background: "rgb(0, 0, 0)",
-        // background: "rgba(0, 0, 0, 0.5)", /* Black see-through */
         background: `${transparentLightPurple}`,
         color: "#f1f1f1", 
         width: "100%",
@@ -217,10 +205,6 @@ const MultiItemCarousel = (props) => {
       };
 
       const getSlideNumber = () => {
-        // if (isWidthUp("xl", props.width)) {
-        //   return 5;
-        // }
-    
         if (isWidthUp("lg", props.width)) {
           return 3;
         }

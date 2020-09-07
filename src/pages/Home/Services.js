@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid black",
         backgroundColor: "white",
         zIndex: 2,
-        // boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
         marginTop: "5rem",
         [theme.breakpoints.down('sm')]: {
             padding: "0 4rem",
@@ -48,19 +47,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         alignItems: "center",
         margin: "1rem",
-        // border: "2px solid limegreen",
-        // width: 650,
         width: "40%",
         boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
         position: "relative",
-        // [theme.breakpoints.down('md')]: {
-        //     // width: 500
-        //     width: "25%",
-        // },
-        // [theme.breakpoints.down('sm')]: {
-        //     width: 310,
-        //     margin: ".5rem"
-        // },
        [theme.breakpoints.down('xs')]: {
             width: "100%",
             // border: "2px solid red",
@@ -155,7 +144,6 @@ const Services = () => {
                     <Grid className={classes.wrapper}>
             {data.map((item) => (
                 <ScrollAnimation className={classes.container} key={item.title}  animateIn="fadeIn" duration="2">
-                    {/* <Grid className={classes.container}> */}
                         <Grid className={classes.imgContainer}>
                             <img className={classes.img} src={`${item.image}`} alt={item.title}/>
                         </Grid>
@@ -165,7 +153,6 @@ const Services = () => {
                         {/* <Grid className={classes.overlay}>
                             <Typography className={`${classes.h1} ${classes.overlayh1}`}>{item.title}</Typography>
 
-                        </Grid> */}
                     {/* </Grid> */}
                 </ScrollAnimation>
             ))}
