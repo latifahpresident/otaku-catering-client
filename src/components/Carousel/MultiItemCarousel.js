@@ -4,6 +4,7 @@ import {withRouter} from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { makeStyles } from '@material-ui/core/styles';
+import ScrollAnimation from 'react-animate-on-scroll';
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import { Grid, Typography, } from "@material-ui/core";
 import {greenColor, darkPurple, transparentLightPurple} from "./../../GlobalStyles/styles";
@@ -23,16 +24,16 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
      marginTop: "4rem",
      width: "100%",
-    //  border: "1px solid orange",
+     border: "1px solid orange",
      [theme.breakpoints.down('lg')]: {
-        // border: "1px solid hotpink",
+        border: "1px solid hotpink",
        },
-      [theme.breakpoints.down('md')]: {
-        // border: "1.5px solid limegreen",
+      [theme.breakpoints.down('md')]: { //ipad pro
+        border: "1.5px solid limegreen",
        },
       [theme.breakpoints.down('sm')]: {
-        // border: "2px solid teal",
-       marginBottom: "4rem",
+        border: "2px solid teal", // ipad
+       marginBottom: "1rem",
        },
     },
     title: {
@@ -86,65 +87,57 @@ const useStyles = makeStyles((theme) => ({
             alignSelf: "flex-start"
         },
     },
-    column: {
-        height: 75,
-        width: 25,
-        border: "1px solid black"
-    },
-    arrow: {
-        color: `${greenColor}`,
-        display: "block",
-        border: "1px solid green"
-    },
     carousel: {
-        // border: "1px solid limegreen",
+        // border: "2px solid black",
         width: "100%",
         margin: "0 auto",
         marginTop: "1.5rem",
-        paddingLeft: "5rem",
+        paddingLeft: "1.5rem",
         // display: "flex",
         // justifyContent: "center",
+        [theme.breakpoints.down('md')]: {
+            paddingLeft: 0,
+            // width: "87%",
+        },
         [theme.breakpoints.down('sm')]: {
-            paddingLeft: "2rem",
+            paddingLeft: 0,
+            // width: "87%",
+        },
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: "1rem",
             // width: "87%",
         },
     },
     container: {
-        maxWidth: 370,
-       width: 370,
-       
-    //    marginRight: "4rem",
+        width: "70%",
+        maxWidth: "100%",
+    //    border: "2px solid orange",
        position: "relative",
        [theme.breakpoints.down('md')]: {
-        // marginRight: "1rem",
-        // width: 200,
-        maxWidth: 330,
-      width: 330
-        // border: "3px solid green",
-        
+           width: "90%",
+           maxWidth: "90%",
     },
        [theme.breakpoints.down('sm')]: {
-        maxWidth: 340,
-        width: 340
-        // border: "3px solid green",
+        width: "100%",
+        maxWidth: "100%",
         
     },
       },
       media: {
         height: 465,
-        [theme.breakpoints.down('sm')]: {
-            marginRight: "1rem",
-            width: "100%",
-          
+        width: "90%",
+        [theme.breakpoints.down('md')]: {
             // border: "3px solid blue",
-            
+            width: "100%",
+            marginRight: "1rem",
         },
+        // [theme.breakpoints.down('sm')]: {
+        //     width: "91.5%",
+        //     // border: "3px solid blue",
+        // },
         [theme.breakpoints.down('xs')]: {
-            marginRight: "1rem",
-            width: "100%",
-          
+            width: "91.5%",
             // border: "3px solid blue",
-            
         },
       },
       overlay: {
@@ -204,22 +197,20 @@ const MultiItemCarousel = (props) => {
   
 
     function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
+        const { onClick } = props;
         return (
           <div
             className="slick-arrow slick-prev"
-            // style={{ ...style, display: "block", background: "green" }}
             onClick={onClick}
           />
         );
       };
 
       function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
+        const { onClick } = props;
         return (
           <div
             className="slick-arrow slick-next"
-            // style={{ ...style, display: "block", background: "green" }}
             onClick={onClick}
           />
         );
@@ -255,9 +246,6 @@ const MultiItemCarousel = (props) => {
     prevArrow: <SamplePrevArrow />
 
   };
-  console.log("settings slides to show", settings.slidesToShow)
-  console.log("settings speed", settings.speed)
-  console.log("width", props.width)
 
     return (
  
@@ -269,50 +257,19 @@ const MultiItemCarousel = (props) => {
                             </Grid>
                             <Typography component="h1" className={classes.h1}>Visualize the experience</Typography>
                 </Grid>
-                <Grid className={classes.carousel}>
-        <Slider {...settings} >
-            {data.map((item) => (
-                 <Card key={item.title} className={classes.container} style={{ marginRight: "2rem"}}>
-                 {/* <CardActionArea> */}
-                   <CardMedia
-                     className={classes.media}
-                     image={item.image}
-                     title={item.title}
-                   />
-                 
-                 {/* </CardActionArea> */}
-               {/* <div className={classes.overlay}></div> */}
-               </Card>
-            ))}
-          {/* <div >
-            <h3>item 1</h3>
-          </div>
-          <div >
-            <h3>item 2</h3>
-          </div>
-          <div >
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
-          <div>
-            <h3>9</h3>
-          </div> */}
-        </Slider>
-        </Grid>
+                <ScrollAnimation animateIn="slideInUp" className={classes.carousel}>
+                    <Slider {...settings} >
+                        {data.map((item) => (
+                            <Card key={item.title} className={classes.container} style={{ marginRight: "2rem"}}>
+                            <CardMedia
+                                className={classes.media}
+                                image={item.image}
+                                title={item.title}
+                            />
+                        </Card>
+                        ))}
+                    </Slider>
+                </ScrollAnimation>
         </div>
     )
 };

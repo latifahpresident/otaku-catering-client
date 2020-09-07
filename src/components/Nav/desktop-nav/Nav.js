@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
       },
   },
   home: {
-      border: `1px solid ${white}`,
+      border: `1px solid ${greenColor}`,
       height: 50,
       display: "flex",
       flexDirection: "column",
